@@ -9,30 +9,10 @@ import { cn } from "@/components/ui/cn";
 import { Container } from "@/components/ui/container";
 import { Logo } from "@/components/ui/logo";
 
-type NavItem = { href: string; label: string };
-
 /*
- * TODO: these belong in content/site.ts (`site.nav`, `site.cta`, `site.phone`),
- * which is owned by another agent and is still empty. The header prefers those
- * values the moment they land and falls back to the agreed IA until then.
- * Every internal href keeps its trailing slash — `trailingSlash: true`.
+ * Nav, CTA and phone all come from content/site.ts. Every internal href keeps
+ * its trailing slash — `trailingSlash: true`.
  */
-const FALLBACK_NAV: NavItem[] = [
-  { href: "/services/", label: "Services" },
-  { href: "/work/", label: "Work" },
-  { href: "/locations/", label: "Locations" },
-  { href: "/about/", label: "About" },
-  { href: "/contact/", label: "Contact" },
-];
-
-const FALLBACK_CTA: NavItem = {
-  href: "/contact/",
-  label: "Book a Strategy Call",
-};
-
-/** From the brief. TODO: drop once `site.phone` is filled in. */
-const FALLBACK_PHONE = "(321) 415-4586";
-
 const stripSlash = (path: string) =>
   path.length > 1 ? path.replace(/\/+$/, "") : path;
 
@@ -43,9 +23,7 @@ export function SiteHeader() {
   const toggleRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
 
-  const nav = site.nav.length > 0 ? site.nav : FALLBACK_NAV;
-  const cta = site.cta ?? FALLBACK_CTA;
-  const phone = site.phone || FALLBACK_PHONE;
+  const { nav, cta, phone } = site;
   const telHref = `tel:${phone.replace(/[^\d+]/g, "")}`;
 
   const isActive = (href: string) => {
@@ -171,13 +149,15 @@ export function SiteHeader() {
             {phone}
           </a>
 
-          <ButtonLink
-            href={cta.href}
-            size="sm"
-            className="hidden sm:inline-flex"
-          >
-            {cta.label}
-          </ButtonLink>
+          {cta && (
+            <ButtonLink
+              href={cta.href}
+              size="sm"
+              className="hidden sm:inline-flex"
+            >
+              {cta.label}
+            </ButtonLink>
+          )}
 
           <button
             ref={toggleRef}
@@ -247,9 +227,11 @@ export function SiteHeader() {
             </nav>
 
             <div className="mt-10 flex flex-col gap-4">
-              <ButtonLink href={cta.href} size="lg" className="w-full">
-                {cta.label}
-              </ButtonLink>
+              {cta && (
+                <ButtonLink href={cta.href} size="lg" className="w-full">
+                  {cta.label}
+                </ButtonLink>
+              )}
               <a
                 href={telHref}
                 className="rounded-md py-2 text-center font-mono text-small text-muted"
