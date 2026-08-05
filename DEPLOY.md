@@ -77,13 +77,30 @@ Build settings:
 | Build command | `npm run build` |
 | Build output directory | `out` |
 | Root directory | *(leave blank)* |
-| Node version | `20` or newer — set env var `NODE_VERSION=20` if the build picks something older |
+| Node version | pinned to `22` by the `.node-version` file in the repo root — see below |
 
 Do **not** choose the plain "Next.js" preset. That one expects a
 server-rendered app and will fight the static export.
 
 That is the entire configuration. There is nothing to add under Settings →
 Environment variables.
+
+### Node version — the one that actually bites
+
+Next.js 16 declares `engines.node: ">=20.9.0"`. Cloudflare's build image
+does **not** default to that: unless told otherwise it picks an older Node,
+and the build dies before it ever reaches `next build`.
+
+The repo therefore pins the version in two places, both committed:
+
+- **`.node-version`** (contains `22`) — Cloudflare reads this file directly.
+  This is the one that does the work.
+- **`engines.node`** in `package.json` — declares the real floor, so `npm`
+  warns anywhere else the project is built.
+
+If a build still reports an old Node, override it in the dashboard:
+Settings → Environment variables → add `NODE_VERSION` = `22`. A dashboard
+variable beats the file.
 
 ### A note on Pages vs. Workers
 
