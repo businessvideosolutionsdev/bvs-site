@@ -1,0 +1,13 @@
+import { cp, mkdir, readFile, stat, lstat, rm } from 'node:fs/promises';
+import { resolve, dirname } from 'node:path';
+const html = await readFile('public/index.html', 'utf8');
+const localFiles = [...html.matchAll(/(?:src|href|poster)="(\/[^"#?]+)"/g)].map(m => m[1]);
+for (const path of new Set(localFiles)) await stat('public' + path);
+const output = resolve('dist');
+if (dirname(output) !== process.cwd()) throw new Error('Build output must be inside this project.');
+const previous = await lstat(output).catch(error => { if (error.code !== 'ENOENT') throw error; });
+if (previous?.isSymbolicLink()) throw new Error('Build output must not be a symlink.');
+await rm(output, { recursive: true, force: true });
+await mkdir(output, { recursive: true });
+await cp('public', output, { recursive: true });
+console.log(`Production site built in dist/. Verified ${new Set(localFiles).size} local references.`);
