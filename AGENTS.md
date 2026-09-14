@@ -1,9 +1,18 @@
-<!-- BEGIN:nextjs-agent-rules -->
+# BVS website
 
-# This is NOT the Next.js you know
+This is a static HTML, CSS and JavaScript website. Source lives in `public/`.
+`npm run build` validates local asset references and creates a clean `dist/`.
+Use Node 22 and `npm run check` before building. Deployment uses the pinned
+Wrangler version and explicit static-assets configuration in `wrangler.jsonc`.
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+Preserve the existing visual design, real client identities and sourced claims.
+Do not stage local authentication files, research, recordings or generated build
+output. New client metrics must be supported by BVS source material.
 
-This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+Cloudflare target: `bvs-site` in the account named in `wrangler.jsonc`.
+Local authentication uses the `bvs` Wrangler profile. GitHub authentication for
+this workspace uses `.tools/github` through `GH_CONFIG_DIR`; do not change
+global accounts or store credentials in tracked files.
 
-<!-- END:nextjs-agent-rules -->
+Custom-domain/DNS migration is separate from the preview deployment. Preserve
+email and the existing `call.` and `get.` funnel hosts. See `DEPLOY.md`.
