@@ -44,13 +44,13 @@ export async function renderPages(output) {
   const mediaAttrs = story => story.video.startsWith('/') ? `href="${story.video}" data-local-video="${story.video}" data-poster="${story.image}"` : `href="https://www.youtube.com/watch?v=${story.video}" data-video="${story.video}"`;
   const photo = story => `<a class="story-image" ${mediaAttrs(story)} data-title="${esc(story.name)}: the client story" aria-label="Watch the ${esc(story.name)} client story"><img src="${story.image}" alt="${esc(story.name)} client story" width="1672" height="941" loading="lazy"><span class="circle-play" aria-hidden="true">▶</span></a>`;
   const card = (story, home=false) => `<article class="result-card" data-category="${esc(story.category)}">${photo(story)}<div class="result-body"><div class="metric${story.metric.length>7?' metric-story':''}"><strong>${esc(story.metric)}</strong><span>${esc(story.label)}</span></div><h3>${esc(story.name)}</h3><p>${esc(story.summary)}</p>${home?`<a class="story-link" ${mediaAttrs(story)} data-title="${esc(story.name)}: the client story">Watch their story <span aria-hidden="true">↗</span></a>`:`<a class="story-link" href="/testimonials/${story.slug}/">Explore their story <span aria-hidden="true">↗</span></a>`}</div></article>`;
-  const meta = ({title,description,path,image='/assets/testimonials/daydream.jpg',type='website',schema=[]}) => head
+  const meta = ({title,description,path,image='/assets/testimonials/courtesy-adjusted.webp',type='website',schema=[]}) => head
     .replace(/<title>.*?<\/title>/, `<title>${esc(title)} | BVS</title>`)
     .replace(/<meta name="description"[^>]*>/, `<meta name="description" content="${esc(description)}">`)
     .replace(/<meta property="og:title"[^>]*>/, `<meta property="og:title" content="${esc(title)}">`)
     .replace(/<meta property="og:description"[^>]*>/, `<meta property="og:description" content="${esc(description)}">`)
     .replace(/<meta property="og:type"[^>]*>/, `<meta property="og:type" content="${type}">`)
-    + `<link rel="canonical" href="${origin}${path}"><meta property="og:url" content="${origin}${path}"><meta property="og:image" content="${origin}${image}"><meta name="twitter:card" content="summary_large_image"><meta name="robots" content="${site.indexable && path !== '/404/'?'index,follow':'noindex,follow'}"><link rel="alternate" type="application/rss+xml" title="BVS Blog" href="/blog/feed.xml"><script type="application/ld+json">${json({'@context':'https://schema.org','@graph':[organization,...schema]})}</script>`;
+    + `<link rel="canonical" href="${origin}${path}"><meta property="og:url" content="${origin}${path}"><meta property="og:image" content="${origin}${image}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="${origin}${image}"><meta name="robots" content="${site.indexable && path !== '/404/'?'index,follow':'noindex,follow'}"><link rel="alternate" type="application/rss+xml" title="BVS Blog" href="/blog/feed.xml"><script type="application/ld+json">${json({'@context':'https://schema.org','@graph':[organization,...schema]})}</script>`;
   async function emit(path, html, include=true) {
     const file = join(output, path, 'index.html');
     await mkdir(dirname(file), {recursive:true});
@@ -84,3 +84,4 @@ export async function renderPages(output) {
   await writeFile(join(output,'blog','feed.xml'),`<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>BVS Local Growth Journal</title><link>${origin}/blog/</link><description>Practical local marketing guides from BVS.</description>${posts.map(post=>`<item><title>${esc(post.title)}</title><link>${origin}/blog/${post.slug}/</link><guid>${origin}/blog/${post.slug}/</guid><description>${esc(post.description)}</description><pubDate>${new Date(post.date+'T12:00:00Z').toUTCString()}</pubDate></item>`).join('')}</channel></rss>`);
   return pages;
 }
+
