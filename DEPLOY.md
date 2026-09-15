@@ -10,6 +10,8 @@ Live preview: https://bvs-site.calm-lab-01f1.workers.dev
 
 Use Node 22. Run `npm run dev` and open http://localhost:4173.
 The preview server listens only on localhost.
+Install dependencies with `npm ci` first. Pages are generated from `templates/`
+and `content/`; do not edit `dist/` directly. See `CONTENT.md` for publishing.
 
 ## Manual deployment
 
@@ -46,6 +48,12 @@ The preview deployment is separate from WordPress. Before changing production
 DNS, back up WordPress, inventory current indexed URLs and redirects, preserve
 email DNS and the `call.` / `get.` funnel subdomains, review analytics and
 metadata, and verify the existing calendar's confirmation redirect.
+
+Set `content/site.json` to the final HTTPS domain and `indexable: true` at domain
+launch. It currently uses the Workers preview URL and `indexable: false`.
+Rebuilding generates canonical URLs, Open Graph links, a sitemap and RSS for the
+selected domain. The preview's noindex tag allows review without asking search
+engines to index a second version of the business website.
 
 Test the preview on desktop/mobile, video dialogs, telephone/email links and
 calendar availability. Do not submit a real appointment as a test.

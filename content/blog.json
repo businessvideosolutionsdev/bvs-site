@@ -1,0 +1,72 @@
+[
+  {
+    "slug": "what-happens-on-a-video-shoot",
+    "title": "Behind the scenes of an on-location video shoot",
+    "description": "From checking the sound to filming the real work, see how a content day comes together at a local business.",
+    "date": "2026-09-14",
+    "category": "Behind the scenes",
+    "image": "/assets/behind-the-scenes/camera-on-location-original.jpg",
+    "imageAlt": "A BVS camera operator checking the monitor during an on-location shoot",
+    "published": true
+  },
+  {
+    "slug": "camera-shy-first-video-shoot",
+    "title": "Camera-shy? A guide to your first video shoot",
+    "description": "Ivan from TSB arrived nervous. His experience is a useful starting point for making your own first content day feel more manageable.",
+    "date": "2026-09-14",
+    "category": "Client perspectives",
+    "image": "/assets/testimonials/tsb.jpg",
+    "imageAlt": "Ivan from Top Selected Brand with Christian in the BVS studio",
+    "published": true
+  },
+  {
+    "slug": "video-ad-scripts-in-your-own-words",
+    "title": "Your video ad script should sound like your business",
+    "description": "A lesson from iMold’s first shoot: give your team time to review the message before the cameras arrive.",
+    "date": "2026-09-14",
+    "category": "Video content",
+    "image": "/assets/testimonials/imold.jpg",
+    "imageAlt": "Adam from iMold discussing the preparation for his first BVS video shoot",
+    "published": true
+  },
+  {
+    "slug": "marketing-investment-questions-to-ask",
+    "title": "Questions to ask before your next marketing investment",
+    "description": "Ben from Southern Diesel Supply shares his initial hesitation. Here is how to turn that concern into a clearer campaign conversation.",
+    "date": "2026-09-14",
+    "category": "Marketing strategy",
+    "image": "/assets/testimonials/southern-diesel-supply.jpg",
+    "imageAlt": "Ben from Southern Diesel Supply sharing his experience with BVS",
+    "published": true
+  },
+  {
+    "slug": "what-to-film-for-local-video-ads",
+    "title": "What to film for local video ads",
+    "description": "A practical shot list for showing your people, your work and the reasons customers should choose your business.",
+    "date": "2026-09-14",
+    "category": "Video content",
+    "image": "/assets/behind-the-scenes/prodips-shoot-original.jpg",
+    "imageAlt": "A ProDips team member explaining the work beside a car during filming",
+    "published": true
+  },
+  {
+    "slug": "turn-ad-clicks-into-better-conversations",
+    "title": "Turn ad clicks into better customer conversations",
+    "description": "Help prospects understand your service before they call, with a clear offer and a landing page that answers the right questions.",
+    "date": "2026-09-14",
+    "category": "Lead quality",
+    "image": "/assets/testimonials/courtesy.jpg",
+    "imageAlt": "Courtesy Screening and BVS on a real screened-patio job",
+    "published": true
+  },
+  {
+    "slug": "prepare-for-a-marketing-strategy-call",
+    "title": "How to prepare for a marketing strategy call",
+    "description": "Bring a few useful numbers and a clear picture of the work you want. Here is what to think through before we talk.",
+    "date": "2026-09-14",
+    "category": "Marketing strategy",
+    "image": "/assets/testimonials/daydream.jpg",
+    "imageAlt": "Daydream Pools with Christian outside a Florida home",
+    "published": true
+  }
+]

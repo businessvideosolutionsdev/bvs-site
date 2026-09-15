@@ -4,16 +4,18 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "node scripts/serve.mjs",
-    "start": "node scripts/serve.mjs",
+    "dev": "node scripts/dev.mjs",
+    "start": "node scripts/dev.mjs",
     "build": "node scripts/build.mjs",
     "deploy": "npm run check && npm run build && wrangler deploy --profile bvs",
-    "check": "node --check public/app.js && node --check scripts/serve.mjs"
+    "check": "node --check public/app.js && node --check scripts/serve.mjs && node --check scripts/render-pages.mjs && node --check scripts/build.mjs && node --check scripts/dev.mjs",
+    "test": "npm run build && node scripts/verify-site.mjs"
   },
   "engines": {
     "node": ">=20"
   },
   "devDependencies": {
+    "marked": "18.0.13",
     "wrangler": "4.131.2"
   }
 }
