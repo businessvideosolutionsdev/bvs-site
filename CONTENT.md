@@ -77,3 +77,11 @@ The current Workers preview uses `indexable: false`. When the business domain is
 ready, set `url` to that domain and `indexable: true`, then rebuild and deploy.
 The sitemap, canonical links, sharing images and feed update together. Review
 redirects from old WordPress URLs as part of that separate domain migration.
+
+## Local review updates
+
+The hero now features Courtesy Screening. Its approximate $150K monthly revenue
+figure comes from the user's September 14 review update, not an attribution of
+that entire revenue amount to BVS ads. The hero links to the full original interview.
+The Florida section uses the photo explicitly supplied in that same review,
+converted to WebP without generative changes. Publishing remains on hold.
