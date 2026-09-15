@@ -57,7 +57,7 @@ document.querySelectorAll('[data-video]').forEach(link => {
     frame.referrerPolicy = 'strict-origin-when-cross-origin';
     document.querySelector('#video-mount').replaceChildren(frame);
     document.querySelector('#video-fallback').href = `https://www.youtube.com/watch?v=${id}`;
-    document.querySelector('#video-fallback').textContent = 'Watch on YouTube ↗';
+    document.querySelector('#video-fallback').textContent = 'Watch on YouTube';
     heroVideo?.pause();
     showDialog(videoDialog, link);
   });
@@ -273,7 +273,7 @@ document.querySelectorAll('[data-local-video]').forEach(link => {
     document.querySelector('#video-mount').replaceChildren(video);
     const fallback = document.querySelector('#video-fallback');
     fallback.href = source;
-    fallback.textContent = 'Open the full video ↗';
+    fallback.textContent = 'Open the full video';
     heroVideo?.pause();
     showDialog(videoDialog, link);
     video.play().catch(() => {});
