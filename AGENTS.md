@@ -40,3 +40,5 @@ global accounts or store credentials in tracked files.
 
 Custom-domain/DNS migration is separate from the preview deployment. Preserve
 email and the existing `call.` and `get.` funnel hosts. See `DEPLOY.md`.
+
+The user approved the current brand-blue process section with white cards and considers it locked. Do not redesign that section while revising testimonials. Current post-publication visual revisions remain local pending review.

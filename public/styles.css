@@ -243,3 +243,73 @@
 .local-photo img[src$="on-location-team.webp"]{object-position:50% 57%}
 #hero-video{object-position:50% 10%}
 #hero-video{filter:none}
+/* Fit the approved headline as three complete phrases at every viewport. */
+.hero-copy{container-type:inline-size;min-width:0}
+.hero .hero-system-title{font-size:clamp(28px,11.5cqw,78px);line-height:1.04}
+.hero .hero-system-title .hero-line{display:block;white-space:nowrap;color:var(--ink)}
+.hero .hero-system-title .hero-line:last-child{color:var(--blue)}
+/* Keep the sticker positioned relative to the video, not a stretched grid row. */
+.hero-visual{align-self:center;width:100%}
+.hero-frame{height:clamp(430px,48vw,640px);min-height:0;flex:none}
+@media(max-width:640px){.hero-frame{height:430px}}
+/* A distinct process chapter with clear steps and tangible deliverables. */
+#process{background:#10162e;color:#fff}
+#process .section-kicker{color:#aebfff;font-size:12px;letter-spacing:.04em}
+#process .section-heading>p{color:#bdc8e5;font-size:15px}
+#process .process-system{gap:22px}
+#process .process-system>li{position:relative;background:#1b2544;border:1px solid #405071;border-top:3px solid #6684ff;padding:28px;box-shadow:0 10px 24px #00000016;transition:transform .25s ease,border-color .25s ease}
+#process .step-number{font:600 54px/1 var(--display);color:#9cb4ff;margin-bottom:18px;display:block}
+#process .step-number:after{display:none}
+#process .process-output{display:inline-block;color:#d7e2ff;background:#2b3b63;border:1px solid #495e8b;border-radius:5px;padding:5px 9px;font-size:11px;font-weight:700;line-height:1.5;margin-bottom:16px}
+#process .process-system h3{font-size:23px;line-height:1.25;letter-spacing:-.025em;color:#fff;margin-bottom:13px}
+#process .process-system p{color:#d0d9ed;font-size:14px;line-height:1.75}
+#process details{border-color:#44516e}
+#process summary{color:#b4c8ff;font-size:13px;padding-block:3px}
+#process details p,#process details ul{color:#c5d1eb;font-size:13px}
+#process details .process-addon{font-size:11px;color:#aebcd8}
+#process .process-close{border-color:#34425f}
+#process .process-close strong{color:#fff}
+#process .process-close p{color:#c5d1eb}
+@media(hover:hover) and (pointer:fine){#process .process-system>li:hover{transform:translateY(-4px);border-color:#8ba4ff}}
+@media(max-width:640px){#process .process-system>li{padding:23px}#process .step-number{font-size:44px}#process .process-system h3{font-size:22px}}
+@media(prefers-reduced-motion:reduce){#process .process-system>li{transition:none}#process .process-system>li:hover{transform:none}}
+/* Shared brand-blue chapters, balanced by light cards and neutral surroundings. */
+#results,#process{background:var(--blue);color:#fff}
+#results .section-kicker,#process .section-kicker{color:#fff}
+#results .section-heading>p,#process .section-heading>p{color:#edf1ff}
+#results .result-card{background:#fff;color:var(--ink);border:1px solid #ffffff;box-shadow:0 12px 28px #10238124}
+#results .metric strong{color:var(--blue)}
+#results .metric>span,#results .result-body p{color:#515d75}
+#results .story-link{border-color:var(--line);color:var(--blue)}
+#results .story-link:hover{color:var(--blue-dark)}
+#results .results-footnote p{color:#edf1ff}
+#process .process-system>li{background:#fff;border:1px solid #fff;border-top:4px solid #b9c8ff;box-shadow:0 12px 28px #10238124}
+#process .step-number{color:var(--blue)}
+#process .process-output{background:#f0f3ff;color:#2543ac;border-color:#dce3ff}
+#process .process-system h3{color:var(--ink)}
+#process .process-system p,#process details p,#process details ul{color:#515d75}
+#process details{border-color:var(--line)}
+#process summary{color:var(--blue)}
+#process details .process-addon{color:#626c80}
+#process .process-close{border-color:#ffffff55}
+#process .process-close p{color:#edf1ff}
+#process .process-close .button{background:#fff;border-color:#fff;color:var(--blue)}
+#process .process-close .button:hover{background:#edf1ff}
+#services{background:var(--paper)}
+#services .support-strip{background:#fff;border:1px solid var(--line)}
+#florida .cities span{background:#fff;border:1px solid var(--line);color:var(--slate)}
+/* Testimonials: defined cards with generous photos and compact content. */
+#results .result-card{background:#fff;color:var(--ink);border:1px solid #ffffff80;border-radius:14px;box-shadow:0 12px 28px #10238124;overflow:hidden;display:flex;flex-direction:column}
+#results .story-image{aspect-ratio:16/10;border-radius:0;overflow:hidden;flex:none}
+#results .result-body{padding:24px;display:flex;flex-direction:column;flex:1}
+#results .metric{margin-bottom:18px}
+#results .metric strong{color:var(--ink);font-size:clamp(38px,3.8vw,52px);line-height:1}
+#results .metric>span{color:#515d75;font-size:14px;margin-top:7px}
+#results .result-body h3{font-size:19px;margin-bottom:10px}
+#results .result-body p{color:#515d75;font-size:13px;line-height:1.7;min-height:0;margin-bottom:22px}
+#results .story-link{margin-top:auto;padding-top:16px;border-color:var(--line);color:var(--blue);font-size:12px}
+#results .story-link:hover{color:var(--blue-dark);text-decoration:underline;text-underline-offset:4px}
+#results .results-grid{gap:26px}
+#results .additional-stories{margin-top:30px}
+#results .results-footnote{margin-top:30px}
+@media(max-width:640px){#results .results-grid{gap:24px}#results .result-body{padding:22px}#results .metric strong{font-size:46px}}
