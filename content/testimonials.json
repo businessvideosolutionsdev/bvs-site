@@ -6,14 +6,15 @@
     "metric": "$300K",
     "label": "in 2 months",
     "summary": "85 new leads. A booked-out calendar. A team hiring to keep up.",
-    "image": "/assets/testimonials/daydream.jpg",
-    "video": "JNrRvurOxCg",
+    "image": "/assets/testimonials/daydream-adjusted.webp",
+    "video": "/assets/videos/daydream-pools.mp4",
     "featured": true,
     "headline": "A pool business with more work on the calendar.",
     "paragraphs": [
       "In the BVS client story, Daydream Pools reports $300,000 in two months alongside 85 new leads. The story also describes a booked-out calendar and the need to hire to keep up with demand.",
       "The video puts the people behind those figures in front of the camera. Watch the client explain the experience and what that growth meant for the business."
-    ]
+    ],
+    "source": "https://www.youtube.com/watch?v=JNrRvurOxCg"
   },
   {
     "slug": "bumblebee-blinds",
@@ -22,14 +23,15 @@
     "metric": "$30K+",
     "label": "in new sales",
     "summary": "From one or two leads a month to 45+ qualified leads in two months.",
-    "image": "/assets/testimonials/bumblebee.jpg",
-    "video": "4mHIRd7luA8",
+    "image": "/assets/testimonials/bumblebee-adjusted.webp",
+    "video": "/assets/videos/bumblebee-blinds.mp4",
     "featured": true,
     "headline": "From inconsistent inquiries to new sales.",
     "paragraphs": [
       "Bumblebee Blinds describes a change from one or two leads a month to more than 45 qualified leads in two months. BVS’s published client story reports over $30,000 in new sales.",
       "Hear the client’s perspective on the campaign and the difference it made to the flow of inquiries."
-    ]
+    ],
+    "source": "https://www.youtube.com/watch?v=4mHIRd7luA8"
   },
   {
     "slug": "courtesy-screening",
@@ -38,7 +40,7 @@
     "metric": "Better leads",
     "label": "ready to move forward",
     "summary": "Rudy shares how video helped prospects understand the work and arrive with more confidence.",
-    "image": "/assets/testimonials/courtesy.jpg",
+    "image": "/assets/testimonials/courtesy-adjusted.webp",
     "video": "/assets/videos/courtesy-screening.mp4",
     "featured": true,
     "headline": "Let people see the work before they call.",
@@ -54,14 +56,15 @@
     "metric": "Booked out",
     "label": "weeks in advance",
     "summary": "From no online presence to new inquiries and a calendar booked weeks ahead.",
-    "image": "/assets/testimonials/blackwater.jpg",
-    "video": "LEVT91_ZYns",
+    "image": "/assets/testimonials/blackwater-adjusted.webp",
+    "video": "/assets/videos/blackwater-land-clearing.mp4",
     "featured": true,
     "headline": "A local business starts getting found.",
     "paragraphs": [
       "Blackwater Land Clearing’s published BVS story describes starting with no online presence, then receiving new inquiries and booking work weeks ahead.",
       "Watch the on-location conversation about the business and its experience after partnering with BVS."
-    ]
+    ],
+    "source": "https://www.youtube.com/watch?v=LEVT91_ZYns"
   },
   {
     "slug": "wow-wraps",
@@ -70,14 +73,15 @@
     "metric": "Weekly → daily",
     "label": "5–6 clients a week to 6–10 a day",
     "summary": "Rafael shares how the shop went from 5–6 clients a week to 6–10 a day.",
-    "image": "/assets/testimonials/wow-wraps.jpg",
-    "video": "39jHtd10evo",
+    "image": "/assets/testimonials/wow-wraps-adjusted.webp",
+    "video": "/assets/videos/wow-wraps.mp4",
     "featured": true,
     "headline": "From a few clients a week to a busier shop every day.",
     "paragraphs": [
       "Rafael from WOW Wraps describes the change from five or six clients per week to six to ten per day. In the same conversation, he discusses the challenge of serving customers while keeping installations and the rest of the shop running.",
       "This is a client account of that period of growth. Watch the full conversation to hear the context behind the result."
-    ]
+    ],
+    "source": "https://www.youtube.com/watch?v=39jHtd10evo"
   },
   {
     "slug": "fairfield-farms",
@@ -86,14 +90,15 @@
     "metric": "Clear ROI",
     "label": "from lead to sale",
     "summary": "A long-term partnership built on measurable results, from the first inquiry to a closed deal.",
-    "image": "/assets/testimonials/fairfield.jpg",
-    "video": "lejODGvvYxg",
+    "image": "/assets/testimonials/fairfield-adjusted.webp",
+    "video": "/assets/videos/fairfield-farms.mp4",
     "featured": true,
     "headline": "A partnership measured in business outcomes.",
     "paragraphs": [
       "Fairfield Farms’ client story looks at a long-term relationship with BVS and the importance of connecting marketing activity with measurable results.",
       "Filmed among the plants at the business, the conversation follows the client’s perspective on the partnership and tracking the path from a lead to a sale."
-    ]
+    ],
+    "source": "https://www.youtube.com/watch?v=lejODGvvYxg"
   },
   {
     "slug": "creature-solutions",
@@ -102,7 +107,7 @@
     "metric": "A clear start",
     "label": "from the first shoot",
     "summary": "Anthony shares how the BVS team guided him through creating his first video ads.",
-    "image": "/assets/testimonials/creature.jpg",
+    "image": "/assets/testimonials/creature-adjusted.webp",
     "video": "/assets/videos/creature-solutions.mp4",
     "featured": false,
     "headline": "Making the first shoot feel approachable.",
@@ -118,7 +123,7 @@
     "metric": "Worth the step",
     "label": "in Ben’s own words",
     "summary": "Ben describes his hesitation about another marketing expense and the return he experienced after starting.",
-    "image": "/assets/testimonials/southern-diesel-supply.jpg",
+    "image": "/assets/testimonials/southern-diesel-supply-adjusted.webp",
     "video": "/assets/videos/southern-diesel-supply.mp4",
     "source": "https://www.instagram.com/business_video_solutions/reel/Dbln0z9lXVs/",
     "featured": false,
@@ -136,7 +141,7 @@
     "metric": "Camera confidence",
     "label": "one step at a time",
     "summary": "Ivan from TSB arrived nervous. He shares how reassurance and step-by-step guidance shaped his first shoot.",
-    "image": "/assets/testimonials/tsb.jpg",
+    "image": "/assets/testimonials/tsb-adjusted.webp",
     "video": "/assets/videos/tsb.mp4",
     "source": "https://www.instagram.com/business_video_solutions/reel/DayLTdlO-PB/",
     "featured": false,
@@ -154,7 +159,7 @@
     "metric": "Ready to film",
     "label": "with scripts reviewed ahead",
     "summary": "Adam explains how advance scripts, team feedback and patience made iMold’s first video shoot easier.",
-    "image": "/assets/testimonials/imold.jpg",
+    "image": "/assets/testimonials/imold-adjusted.webp",
     "video": "/assets/videos/imold.mp4",
     "source": "https://www.instagram.com/business_video_solutions/reel/DRxTde7iSRe/",
     "featured": false,
@@ -172,14 +177,15 @@
     "metric": "806 new members",
     "label": "in the very first month",
     "summary": "The goal was 100 new members a month. i9 Sports reports 806 in month one.",
-    "image": "/assets/testimonials/i9.jpg",
-    "video": "mARd-XNChiE",
+    "image": "/assets/testimonials/i9-adjusted.webp",
+    "video": "/assets/videos/i9-sports.mp4",
     "featured": false,
     "headline": "A 100-member goal. 806 new members in month one.",
     "paragraphs": [
-      "i9 Sports came to BVS with a goal of adding 100 new members a month. In the client video, the owner reports 806 new members in the very first month—more than eight times that goal.",
+      "i9 Sports came to BVS with a goal of adding 100 new members a month. In the client video, the owner reports 806 new members in the very first month, more than eight times that goal.",
       "The published case study also reports 1,227 leads at $3 per lead. The result that matters most in this story is the new membership: families taking the next step and joining the program.",
       "Hear the owner describe the campaign on the playing field and what the response meant for the business."
-    ]
+    ],
+    "source": "https://www.youtube.com/watch?v=mARd-XNChiE"
   }
 ]

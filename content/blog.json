@@ -1,5 +1,85 @@
 [
   {
+    "slug": "educational-video-ads-local-services",
+    "title": "How to turn customer questions into educational video ads",
+    "description": "Build a useful ad around one real customer question, with a clear demonstration and a relevant next step.",
+    "date": "2026-09-14",
+    "category": "Video content",
+    "image": "/assets/behind-the-scenes/prodips-shoot-original.jpg",
+    "imageAlt": "A team member explaining work beside a car during an on-location shoot",
+    "published": true
+  },
+  {
+    "slug": "video-ad-opening-test",
+    "title": "Three video ad openings worth testing",
+    "description": "A practical way to film and compare questions, demonstrations and preparation tips without rebuilding your entire ad.",
+    "date": "2026-09-14",
+    "category": "Video content",
+    "image": "/assets/behind-the-scenes/on-location-team.webp",
+    "imageAlt": "The BVS crew filming a real customer interview on location",
+    "published": true
+  },
+  {
+    "slug": "visual-proof-service-business-ads",
+    "title": "Show the proof: a better structure for service-business ads",
+    "description": "Match each claim to real footage and sequence the evidence so customers can understand why it matters.",
+    "date": "2026-09-14",
+    "category": "Video content",
+    "image": "/assets/testimonials/fairfield-adjusted.webp",
+    "imageAlt": "A Fairfield Farms interview filmed with BVS",
+    "published": true
+  },
+  {
+    "slug": "local-service-area-ad-targeting",
+    "title": "Build your ad targeting around the jobs you can actually serve",
+    "description": "Use coverage, project fit and sales feedback to make better local targeting decisions.",
+    "date": "2026-09-14",
+    "category": "Marketing strategy",
+    "image": "/assets/testimonials/blackwater-adjusted.webp",
+    "imageAlt": "Blackwater Land Clearing with BVS beside a work vehicle",
+    "published": true
+  },
+  {
+    "slug": "marketing-to-new-florida-homeowners",
+    "title": "Create useful marketing for new Florida homeowners",
+    "description": "Turn a move-in question into a focused lesson that helps a new customer understand your service.",
+    "date": "2026-09-14",
+    "category": "Marketing strategy",
+    "image": "/assets/blog/florida-homeowner-filming.webp",
+    "imageAlt": "Daydream Pools and BVS outside a Florida home",
+    "published": true
+  },
+  {
+    "slug": "define-qualified-lead-service-business",
+    "title": "What should a qualified lead mean for your business?",
+    "description": "Agree on fit, ask useful questions and record why inquiries do or do not become suitable opportunities.",
+    "date": "2026-09-14",
+    "category": "Lead quality",
+    "image": "/assets/testimonials/courtesy-adjusted.webp",
+    "imageAlt": "Rudy from Courtesy Screening discussing his experience with BVS",
+    "published": true
+  },
+  {
+    "slug": "appointment-setter-lead-handoff",
+    "title": "Build a better handoff from inquiry to appointment",
+    "description": "A practical checklist for passing customer context to the owner without restarting the conversation.",
+    "date": "2026-09-14",
+    "category": "Lead quality",
+    "image": "/assets/testimonials/wow-wraps-adjusted.webp",
+    "imageAlt": "Courtesy Screening and BVS on a screened-patio job",
+    "published": true
+  },
+  {
+    "slug": "measure-lead-quality-beyond-cost-per-lead",
+    "title": "Measure lead quality beyond cost per lead",
+    "description": "Compare inquiry cost, qualification and sales progression with clear definitions and a worked example.",
+    "date": "2026-09-14",
+    "category": "Marketing strategy",
+    "image": "/assets/testimonials/bumblebee-adjusted.webp",
+    "imageAlt": "Bumblebee Blinds sharing its client experience",
+    "published": true
+  },
+  {
     "slug": "what-happens-on-a-video-shoot",
     "title": "Behind the scenes of an on-location video shoot",
     "description": "From checking the sound to filming the real work, see how a content day comes together at a local business.",
@@ -15,7 +95,7 @@
     "description": "Ivan from TSB arrived nervous. His experience is a useful starting point for making your own first content day feel more manageable.",
     "date": "2026-09-14",
     "category": "Client perspectives",
-    "image": "/assets/testimonials/tsb.jpg",
+    "image": "/assets/testimonials/tsb-adjusted.webp",
     "imageAlt": "Ivan from Top Selected Brand with Christian in the BVS studio",
     "published": true
   },
@@ -25,7 +105,7 @@
     "description": "A lesson from iMold’s first shoot: give your team time to review the message before the cameras arrive.",
     "date": "2026-09-14",
     "category": "Video content",
-    "image": "/assets/testimonials/imold.jpg",
+    "image": "/assets/testimonials/imold-adjusted.webp",
     "imageAlt": "Adam from iMold discussing the preparation for his first BVS video shoot",
     "published": true
   },
@@ -35,7 +115,7 @@
     "description": "Ben from Southern Diesel Supply shares his initial hesitation. Here is how to turn that concern into a clearer campaign conversation.",
     "date": "2026-09-14",
     "category": "Marketing strategy",
-    "image": "/assets/testimonials/southern-diesel-supply.jpg",
+    "image": "/assets/testimonials/southern-diesel-supply-adjusted.webp",
     "imageAlt": "Ben from Southern Diesel Supply sharing his experience with BVS",
     "published": true
   },
@@ -45,7 +125,7 @@
     "description": "A practical shot list for showing your people, your work and the reasons customers should choose your business.",
     "date": "2026-09-14",
     "category": "Video content",
-    "image": "/assets/behind-the-scenes/prodips-shoot-original.jpg",
+    "image": "/assets/blog/filming-service-demonstration.webp",
     "imageAlt": "A ProDips team member explaining the work beside a car during filming",
     "published": true
   },
@@ -55,7 +135,7 @@
     "description": "Help prospects understand your service before they call, with a clear offer and a landing page that answers the right questions.",
     "date": "2026-09-14",
     "category": "Lead quality",
-    "image": "/assets/testimonials/courtesy.jpg",
+    "image": "/assets/testimonials/creature-adjusted.webp",
     "imageAlt": "Courtesy Screening and BVS on a real screened-patio job",
     "published": true
   },
@@ -65,7 +145,7 @@
     "description": "Bring a few useful numbers and a clear picture of the work you want. Here is what to think through before we talk.",
     "date": "2026-09-14",
     "category": "Marketing strategy",
-    "image": "/assets/testimonials/daydream.jpg",
+    "image": "/assets/testimonials/daydream-adjusted.webp",
     "imageAlt": "Daydream Pools with Christian outside a Florida home",
     "published": true
   }
