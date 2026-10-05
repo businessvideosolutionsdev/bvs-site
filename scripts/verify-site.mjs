@@ -18,6 +18,8 @@ for (const file of files) {
   documents.set(path, html);
   assert.equal([...html.matchAll(/<h1(?:\s|>)/g)].length, 1, `${path}: one primary heading`);
   assert.ok(!html.includes('{{HOME_STORIES}}'), `${path}: template rendered`);
+  assert.equal([...html.matchAll(/googletagmanager\.com\/gtag\/js\?id=G-4PJG35TRXF/g)].length, 1, `${path}: Google tag loader`);
+  assert.equal([...html.matchAll(/gtag\('config', 'G-4PJG35TRXF'\)/g)].length, 1, `${path}: Google tag configured`);
   const title = html.match(/<title>(.*?)<\/title>/)?.[1];
   const description = html.match(/<meta name="description" content="([^"]+)"/)?.[1];
   assert.ok(title && !titles.has(title), `${path}: unique title`);
