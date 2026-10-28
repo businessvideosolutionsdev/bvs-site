@@ -10,7 +10,9 @@
     "optimize:images": "node scripts/prepare-testimonial-images.mjs && node scripts/optimize-site-images.mjs",
     "deploy": "npm run check && npm run build && wrangler deploy --profile bvs",
     "check": "node --check public/app.js && node --check src/worker.js && node --check scripts/serve.mjs && node --check scripts/render-pages.mjs && node --check scripts/build.mjs && node --check scripts/dev.mjs && node --check scripts/optimize-site-images.mjs && node --check scripts/verify-worker.mjs",
-    "test": "npm run build && node scripts/verify-site.mjs && node scripts/verify-worker.mjs"
+    "test": "npm run build && node scripts/verify-site.mjs && node scripts/verify-worker.mjs",
+    "build:staging": "npm run build && node scripts/prepare-staging.mjs",
+    "deploy:staging": "wrangler deploy --config wrangler.staging.jsonc"
   },
   "engines": {
     "node": ">=20"

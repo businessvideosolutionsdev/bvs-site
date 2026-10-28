@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import staging from '../src/staging-worker.js';
+const env={ASSETS:{fetch:async()=>new Response('staging',{headers:{'Content-Type':'text/html'}})}};
+const response=await staging.fetch(new Request('https://staging.example/'),env);
+assert.equal(response.headers.get('X-Environment'),'staging');
+assert.equal(response.headers.get('X-Robots-Tag'),'noindex, nofollow');
+assert.match(response.headers.get('Content-Security-Policy'),/form-action 'none'/);
+assert.match(await (await staging.fetch(new Request('https://staging.example/robots.txt'),env)).text(),/Disallow: \//);
+const html=await readFile('dist/index.html','utf8');
+assert.match(html,/STAGING · Review only/);
+assert.doesNotMatch(html,/class="[^"]*booking-entry/);
+assert.doesNotMatch(html,/<script[^>]*src="[^"]*googletagmanager/);
+assert.match(html,/<button[^>]*type="submit"[^>]*disabled/);
+console.log('Verified staging noindex, disabled bookings, and analytics exclusion.');

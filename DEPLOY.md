@@ -80,3 +80,18 @@ calendar availability. Do not submit a real appointment as a test.
 Use the Worker deployment history to redeploy a previous version. Git history
 also preserves the earlier implementation. Do not force-push or delete that
 history. DNS is managed separately.
+
+## Persistent staging
+
+Staging Worker: `bvs-site-staging`. Public review URL: https://bvs-site-staging.calm-lab-01f1.workers.dev
+
+The `staging` Git branch deploys only to this separate Worker using
+`npm run build:staging` and `npm run deploy:staging`. Production continues to use
+`main` and the original `wrangler.jsonc`. No DNS or custom domains are configured.
+Staging is noindex, with a visible review banner. Booking is disabled on BVS;
+Courtesy form validation runs normally but delivery is simulated, without CRM
+requests or storing lead details. No production secrets are copied.
+
+After review, promote selected changes through a PR to `main` only with explicit
+publishing approval. Keep the staging config and preparation script available;
+production build/deploy scripts do not invoke them.
