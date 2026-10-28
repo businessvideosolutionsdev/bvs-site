@@ -4,7 +4,9 @@ This repository replaces the earlier Next.js implementation with a static site.
 Cloudflare serves `dist/` directly through Workers Static Assets. No Next.js,
 OpenNext adapter or server runtime is needed.
 
-Live preview: https://bvs-site.calm-lab-01f1.workers.dev
+Production: https://businessvideosolutions.net
+
+Worker preview: https://bvs-site.calm-lab-01f1.workers.dev
 
 ## Local preview
 
@@ -42,18 +44,33 @@ Pushes to `main` update the Worker; branch builds upload preview versions.
 For this workspace, set `GH_CONFIG_DIR` to `.tools/github` before Git pushes or
 GitHub CLI operations so they use the BVS account.
 
-## Before moving the business domain
+## Production domain and SEO routing
 
-The preview deployment is separate from WordPress. Before changing production
-DNS, back up WordPress, inventory current indexed URLs and redirects, preserve
-email DNS and the `call.` / `get.` funnel subdomains, review analytics and
-metadata, and verify the existing calendar's confirmation redirect.
+The business domain is managed separately from the Worker deployment. Do not
+change DNS from this repository. Preserve email DNS and the `call.` / `get.`
+funnel subdomains.
 
-Set `content/site.json` to the final HTTPS domain and `indexable: true` at domain
-launch. It currently uses the Workers preview URL and `indexable: false`.
-Rebuilding generates canonical URLs, Open Graph links, a sitemap and RSS for the
-selected domain. The preview's noindex tag allows review without asking search
-engines to index a second version of the business website.
+`content/site.json` uses the final HTTPS domain with `indexable: true`.
+Rebuilding generates production canonical URLs, Open Graph links, a sitemap and
+RSS. The Workers preview uses the same production canonicals, so it is not
+presented to search engines as a second canonical website.
+
+`src/worker.js` redirects HTTP and `www` requests to the canonical HTTPS host,
+maps valuable legacy About, service and location URLs to durable replacement
+pages, and returns `410 Gone` for obsolete WordPress feeds and system paths.
+Keep the redirect tests passing when changing routes.
+
+The same Worker adds the audit-approved security headers to every response:
+
+- `Referrer-Policy: strict-origin-when-cross-origin`
+- `X-Content-Type-Options: nosniff`
+- `Strict-Transport-Security: max-age=300`
+
+The HSTS value is intentionally the five-minute first rollout phase. After the
+production domain, assets, forms, embeds and required subdomains have been
+verified over HTTPS, increase it in controlled phases. Do not add
+`includeSubDomains` or `preload` until every BVS subdomain is inventoried and
+confirmed HTTPS-only.
 
 Test the preview on desktop/mobile, video dialogs, telephone/email links and
 calendar availability. Do not submit a real appointment as a test.

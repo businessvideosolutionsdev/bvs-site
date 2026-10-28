@@ -43,7 +43,7 @@ For your own reporting, label each measure accurately and include the period. A 
 
 Add the most common reasons inquiries did not progress: outside area, wrong service, unable to contact, timing, or another documented reason. That helps distinguish a messaging problem from a follow-up problem.
 
-For businesses ready for a technical integration, Meta describes using CRM outcomes with its Conversions API to optimize for qualified leads. That requires a properly implemented connection and suitable data; changing a label in a spreadsheet alone does not create it. [Meta’s training explains the concept](https://www.facebookblueprint.com/student/path/253141-conversions-api-crm).
+For businesses ready for a technical integration, Meta describes using CRM outcomes with its Conversions API to optimize for qualified leads. That requires a properly implemented connection and suitable data; changing a label in a spreadsheet alone does not create it. [Meta’s training explains the concept](https://www.facebookblueprint.com/student/path/253141-conversions-api-crm-lead-quality).
 
 Start with a weekly review of one consistent group of inquiries. Look at cost, fit and progression together. Choose the largest documented gap and assign a specific improvement before increasing spend.
 
