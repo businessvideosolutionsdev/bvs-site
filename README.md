@@ -18,7 +18,7 @@ npm test
 node scripts/serve.mjs --production
 ```
 
-The build writes the static website to `dist/`. The preview server listens on localhost only. Preview: https://bvs-site.calm-lab-01f1.workers.dev — first manual deployment completed on 14 September 2026. Cloudflare deployment targets the `bvs-site` Worker. See `DEPLOY.md` for manual and Git deployment steps; production domain migration is separate.
+The build writes the static website to `dist/`. The preview server listens on localhost only. Production: https://businessvideosolutions.net. Worker preview: https://bvs-site.calm-lab-01f1.workers.dev. Cloudflare deployment targets the `bvs-site` Worker. See `DEPLOY.md` for manual and Git deployment steps; DNS changes remain separate from code deployment.
 
 ## Editing
 
@@ -27,6 +27,7 @@ The build writes the static website to `dist/`. The preview server listens on lo
 - `content/blog.json` and `content/posts/`: article metadata and Markdown content.
 - `content/site.json`: canonical domain and search indexing setting.
 - `scripts/render-pages.mjs`: static page generation, metadata, sitemap and RSS.
+- `src/worker.js`: canonical-host handling, legacy redirects and permanent-gone responses.
 - `public/styles.css`: colors, typography, layout and responsive styles.
 - `public/app.js`: navigation, video dialogs, background playback and booking handoff.
 - `public/assets/`: website images and the optimized silent background video.
@@ -34,8 +35,8 @@ The build writes the static website to `dist/`. The preview server listens on lo
 - `CONTENT.md`: the user's preferred workflow: send content to Codex to publish.
 
 The local preview rebuilds after source changes; refresh the browser to see them.
-The site includes the homepage, `/testimonials/`, 11 client story pages,
-`/blog/`, seven guides, an RSS feed and a custom 404 page.
+The site includes the homepage, services, service areas, about, `/testimonials/`,
+11 client story pages, `/blog/`, 15 guides, an RSS feed and a custom 404 page.
 
 Contact: **(407) 791-0391**, **info@businessvideosolutions.net**. Both email links point to the displayed address.
 

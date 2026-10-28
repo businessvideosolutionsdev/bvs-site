@@ -16,7 +16,7 @@ The original video frame above shows a camera operator checking the monitor duri
 
 On your content day, expect a little time for positioning and checks. A room that sounds quiet in conversation can still have an air conditioner or background activity that a microphone picks up. Let the crew assess the space before the first take.
 
-<figure class="editorial-photo"><img src="/assets/team.jpg" alt="A camera operator filming people working with flowers on location" width="1024" height="681" loading="lazy"><figcaption>Capturing the people and everyday work inside the business.</figcaption></figure>
+<figure class="editorial-photo"><img src="/assets/team.webp" alt="A camera operator filming people working with flowers on location" width="1024" height="681" loading="lazy"><figcaption>Capturing the people and everyday work inside the business.</figcaption></figure>
 
 ## Film the people customers will meet
 
@@ -24,7 +24,7 @@ An owner or team member can explain the service in a way that makes the business
 
 You can pause between answers and repeat a sentence when needed. Ivan from [Top Selected Brand](/testimonials/top-selected-brand/) describes how step-by-step guidance helped him through his own nerves. The person on camera brings the knowledge; the production team helps capture it.
 
-<figure class="editorial-photo"><img src="/assets/behind-the-scenes/fairfield-interview-original.jpg" alt="An on-camera interview among the plants at Fairfield Farms, with the camera rig in the foreground" width="1672" height="941" loading="lazy"><figcaption>Filming at Fairfield Farms puts the real business around the conversation.</figcaption></figure>
+<figure class="editorial-photo"><img src="/assets/behind-the-scenes/fairfield-interview.webp" alt="An on-camera interview among the plants at Fairfield Farms, with the camera rig in the foreground" width="560" height="996" loading="lazy"><figcaption>Filming at Fairfield Farms puts the real business around the conversation.</figcaption></figure>
 
 ## Show the details behind the explanation
 
@@ -32,7 +32,7 @@ Supporting footage gives an explanation something concrete to connect with. At a
 
 Choose details that help someone understand the service. A wide view establishes the location, while a closer view can make a particular step easier to follow.
 
-<figure class="editorial-photo"><img src="/assets/behind-the-scenes/prodips-shoot-original.jpg" alt="A ProDips team member speaking beside a car during an on-location recording" width="1672" height="941" loading="lazy"><figcaption>A workshop provides real examples to support the message.</figcaption></figure>
+<figure class="editorial-photo"><img src="/assets/behind-the-scenes/prodips-shoot.webp" alt="A ProDips team member speaking beside a car during an on-location recording" width="750" height="1330" loading="lazy"><figcaption>A workshop provides real examples to support the message.</figcaption></figure>
 
 ## Connect the content to the next customer conversation
 

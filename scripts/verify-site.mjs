@@ -7,6 +7,8 @@ const site = JSON.parse(await readFile('content/site.json', 'utf8'));
 const stories = JSON.parse(await readFile('content/testimonials.json', 'utf8'));
 const posts = JSON.parse(await readFile('content/blog.json', 'utf8'));
 const origin = new URL(site.url).origin;
+assert.equal(origin, 'https://businessvideosolutions.net', 'Production canonical host remains configured');
+assert.equal(site.indexable, true, 'Production pages remain indexable');
 const files = (await readdir(output, {recursive:true})).filter(p=>p.endsWith('.html'));
 const documents = new Map();
 const titles = new Set();
@@ -35,6 +37,9 @@ for (const file of files) {
   assert.equal(graph['@context'], 'https://schema.org');
   const robots = html.match(/<meta name="robots" content="([^"]+)"/)?.[1];
   assert.equal(robots, site.indexable && path !== '/404.html' ? 'index,follow' : 'noindex,follow');
+  for (const image of html.matchAll(/<img\b[^>]*>/g)) {
+    assert.match(image[0], /\balt="[^"]+"/, `${path}: every content image has descriptive alt text`);
+  }
 }
 for (const [path,html] of documents) {
   for (const [,href] of html.matchAll(/href="([^"\s]+)"/g)) {
@@ -50,6 +55,9 @@ const sitemapPaths = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(m=>new URL(
 assert.deepEqual(new Set(sitemapPaths), canonicalPaths, 'Sitemap includes every public page exactly once');
 assert.equal(sitemapPaths.length, canonicalPaths.size);
 const home = documents.get('/');
+for (const path of ['/services/', '/service-areas/', '/about/']) {
+  assert.ok(documents.has(path), `${path}: durable legacy redirect destination exists`);
+}
 assert.equal([...home.matchAll(/class="result-card"/g)].length, 6);
 assert.ok(home.includes('<h3>Courtesy Screening</h3>'));
 assert.ok(!home.includes('<h3>i9 Sports</h3>'));
@@ -64,5 +72,18 @@ assert.equal([...feed.matchAll(/<item>/g)].length, posts.filter(p=>p.published).
 for (const post of posts) {
   assert.equal(documents.has(`/blog/${post.slug}/`), post.published, 'Only published articles have pages');
   assert.equal(feed.includes(`/blog/${post.slug}/`), post.published, 'Only published articles appear in feed');
+}
+for (const image of [
+  ...stories.map(story => story.image),
+  '/assets/behind-the-scenes/on-location-team-optimized.webp',
+  '/assets/behind-the-scenes/prodips-shoot.webp',
+  '/assets/behind-the-scenes/fairfield-interview.webp',
+  '/assets/blog/florida-homeowner-filming-optimized.webp',
+  '/assets/team.webp',
+]) {
+  assert.ok((await stat(resolve(output, '.' + image))).size <= 100 * 1024, `${image}: optimized to 100 KB or less`);
+}
+for (const html of documents.values()) {
+  assert.ok(!html.includes('facebookblueprint.com/student/path/253141-conversions-api-crm"'), 'Retired Meta training URL replaced');
 }
 console.log(`Verified ${canonicalPaths.size} public pages: metadata, structured data, internal anchors, sitemap, content and video sizes.`);

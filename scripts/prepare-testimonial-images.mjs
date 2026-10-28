@@ -12,7 +12,7 @@ for (const name of names) {
     .gamma(1.1)
     .modulate({ brightness, saturation: 1.025 })
     .sharpen({ sigma: 0.5, m1: 0.35, m2: 0.7 })
-    .webp({ quality: 93, effort: 6 })
+    .webp({ quality: 80, effort: 6 })
     .toFile(`public/assets/testimonials/${name}-adjusted.webp`);
 }
 for (const file of ['content/testimonials.json', 'content/blog.json', 'templates/home.html']) {
