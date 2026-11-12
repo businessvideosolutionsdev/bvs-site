@@ -22,6 +22,10 @@ for (const file of files) {
   assert.ok(!html.includes('{{HOME_STORIES}}'), `${path}: template rendered`);
   assert.equal([...html.matchAll(/googletagmanager\.com\/gtag\/js\?id=G-4PJG35TRXF/g)].length, 1, `${path}: Google tag loader`);
   assert.equal([...html.matchAll(/gtag\('config', 'G-4PJG35TRXF'\)/g)].length, 1, `${path}: Google tag configured`);
+  assert.equal([...html.matchAll(/connect\.facebook\.net\/en_US\/fbevents\.js/g)].length, 1, `${path}: Meta Pixel loader`);
+  assert.equal([...html.matchAll(/fbq\('init', '618977481863172'\)/g)].length, 1, `${path}: Meta Pixel configured`);
+  assert.equal([...html.matchAll(/fbq\('track', 'PageView'\)/g)].length, 1, `${path}: Meta PageView event`);
+  assert.equal([...html.matchAll(/facebook\.com\/tr\?id=618977481863172&amp;ev=PageView&amp;noscript=1/g)].length, 1, `${path}: Meta Pixel fallback`);
   const title = html.match(/<title>(.*?)<\/title>/)?.[1];
   const description = html.match(/<meta name="description" content="([^"]+)"/)?.[1];
   assert.ok(title && !titles.has(title), `${path}: unique title`);
@@ -38,6 +42,10 @@ for (const file of files) {
   const robots = html.match(/<meta name="robots" content="([^"]+)"/)?.[1];
   assert.equal(robots, site.indexable && path !== '/404.html' ? 'index,follow' : 'noindex,follow');
   for (const image of html.matchAll(/<img\b[^>]*>/g)) {
+    if (image[0].includes('data-meta-pixel-fallback')) {
+      assert.match(image[0], /\balt=""/, `${path}: Meta Pixel fallback remains decorative`);
+      continue;
+    }
     assert.match(image[0], /\balt="[^"]+"/, `${path}: every content image has descriptive alt text`);
   }
 }
@@ -55,6 +63,16 @@ const sitemapPaths = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(m=>new URL(
 assert.deepEqual(new Set(sitemapPaths), canonicalPaths, 'Sitemap includes every public page exactly once');
 assert.equal(sitemapPaths.length, canonicalPaths.size);
 const home = documents.get('/');
+for (const field of ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content']) {
+  assert.equal([...home.matchAll(new RegExp(`name="${field}"`, 'g'))].length, 2, `Both booking forms include ${field}`);
+}
+assert.ok(home.includes('name="utm_content" value="hero_form"'), 'Hero form has a distinct UTM content value');
+assert.ok(home.includes('name="utm_content" value="footer_form"'), 'Footer form has a distinct UTM content value');
+assert.ok(home.includes('utm_content=booking_fallback'), 'Separate-tab booking link has UTMs');
+assert.ok(home.includes('utm_content=noscript_booking'), 'No-JavaScript booking link has UTMs');
+const appScript = await readFile(resolve(output, 'app.js'), 'utf8');
+assert.ok(appScript.includes("const BOOKING_UTM_FIELDS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'];"), 'Booking iframe accepts the approved UTM fields');
+assert.ok(appScript.includes('bookingUrl.searchParams.set(field, value)'), 'Booking iframe receives form UTM values');
 for (const path of ['/services/', '/service-areas/', '/about/']) {
   assert.ok(documents.has(path), `${path}: durable legacy redirect destination exists`);
 }
