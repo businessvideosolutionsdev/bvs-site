@@ -1,4 +1,5 @@
 const BOOKING_URL = 'https://get.businessvideosolutions.net/widget/booking/tsH596xa7wEMt84KP8bH';
+const BOOKING_UTM_FIELDS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'];
 const menu = document.querySelector('.menu-toggle');
 const navigation = document.querySelector('#main-nav');
 const videoDialog = document.querySelector('#video-dialog');
@@ -207,7 +208,12 @@ document.querySelectorAll('.booking-entry').forEach(form => {
     const status = document.querySelector('.calendar-status');
     status.hidden = false;
     const frame = document.createElement('iframe');
-    frame.src = BOOKING_URL;
+    const bookingUrl = new URL(BOOKING_URL);
+    for (const field of BOOKING_UTM_FIELDS) {
+      const value = data.get(field);
+      if (value) bookingUrl.searchParams.set(field, value);
+    }
+    frame.src = bookingUrl.toString();
     frame.title = 'Book a strategy call with Christian at Business Video Solutions';
     frame.referrerPolicy = 'strict-origin-when-cross-origin';
     frame.addEventListener('load', () => { status.hidden = true; });

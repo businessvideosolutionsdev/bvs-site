@@ -63,6 +63,16 @@ const sitemapPaths = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(m=>new URL(
 assert.deepEqual(new Set(sitemapPaths), canonicalPaths, 'Sitemap includes every public page exactly once');
 assert.equal(sitemapPaths.length, canonicalPaths.size);
 const home = documents.get('/');
+for (const field of ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content']) {
+  assert.equal([...home.matchAll(new RegExp(`name="${field}"`, 'g'))].length, 2, `Both booking forms include ${field}`);
+}
+assert.ok(home.includes('name="utm_content" value="hero_form"'), 'Hero form has a distinct UTM content value');
+assert.ok(home.includes('name="utm_content" value="footer_form"'), 'Footer form has a distinct UTM content value');
+assert.ok(home.includes('utm_content=booking_fallback'), 'Separate-tab booking link has UTMs');
+assert.ok(home.includes('utm_content=noscript_booking'), 'No-JavaScript booking link has UTMs');
+const appScript = await readFile(resolve(output, 'app.js'), 'utf8');
+assert.ok(appScript.includes("const BOOKING_UTM_FIELDS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'];"), 'Booking iframe accepts the approved UTM fields');
+assert.ok(appScript.includes('bookingUrl.searchParams.set(field, value)'), 'Booking iframe receives form UTM values');
 for (const path of ['/services/', '/service-areas/', '/about/']) {
   assert.ok(documents.has(path), `${path}: durable legacy redirect destination exists`);
 }
