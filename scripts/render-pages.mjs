@@ -32,6 +32,8 @@ export async function renderPages(output) {
   posts.sort((a,b) => b.date.localeCompare(a.date));
   const template = await readFile('templates/home.html', 'utf8');
   const head = template.match(/<head>([\s\S]*?)<\/head>/)[1];
+  const metaPixelFallback = template.match(/<noscript data-meta-pixel-fallback>[\s\S]*?<\/noscript>/)?.[0];
+  if (!metaPixelFallback) throw new Error('Meta Pixel fallback is missing from the homepage template');
   const header = template.match(/<header[\s\S]*?<\/header>/)[0].replaceAll('href="#', 'href="/#');
   let footer = template.match(/<footer[\s\S]*?<\/footer>/)[0].replaceAll('href="#', 'href="/#');
   footer = footer.replace('<div class="footer-bottom">', '<nav class="footer-pages" aria-label="Explore BVS"><a href="/">Home</a><a href="/services/">Services</a><a href="/service-areas/">Service areas</a><a href="/about/">About</a><a href="/testimonials/">Client stories</a><a href="/blog/">Blog</a><a href="/#strategy">Book a strategy call</a></nav><div class="footer-bottom">');
@@ -60,7 +62,7 @@ export async function renderPages(output) {
   const shell = (body, config) => {
     const currentNav = config.path.startsWith('/blog/') ? '/blog/' : config.path.startsWith('/testimonials/') ? '/testimonials/' : null;
     const pageHeader = currentNav ? header.replace(`href="${currentNav}"`, `href="${currentNav}" aria-current="page"`) : header;
-    return `<!doctype html><html lang="en"><head>${meta(config)}</head><body class="inner-page"><a href="#main" class="skip-link">Skip to content</a>${pageHeader}<main id="main">${body}</main>${footer}${dialogs}</body></html>`;
+    return `<!doctype html><html lang="en"><head>${meta(config)}</head><body class="inner-page">${metaPixelFallback}<a href="#main" class="skip-link">Skip to content</a>${pageHeader}<main id="main">${body}</main>${footer}${dialogs}</body></html>`;
   };
   const featured = stories.filter(s=>s.featured);
   if (featured.length !== 6) throw new Error('Homepage must feature six client stories');

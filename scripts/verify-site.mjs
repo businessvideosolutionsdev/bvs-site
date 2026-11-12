@@ -22,6 +22,10 @@ for (const file of files) {
   assert.ok(!html.includes('{{HOME_STORIES}}'), `${path}: template rendered`);
   assert.equal([...html.matchAll(/googletagmanager\.com\/gtag\/js\?id=G-4PJG35TRXF/g)].length, 1, `${path}: Google tag loader`);
   assert.equal([...html.matchAll(/gtag\('config', 'G-4PJG35TRXF'\)/g)].length, 1, `${path}: Google tag configured`);
+  assert.equal([...html.matchAll(/connect\.facebook\.net\/en_US\/fbevents\.js/g)].length, 1, `${path}: Meta Pixel loader`);
+  assert.equal([...html.matchAll(/fbq\('init', '618977481863172'\)/g)].length, 1, `${path}: Meta Pixel configured`);
+  assert.equal([...html.matchAll(/fbq\('track', 'PageView'\)/g)].length, 1, `${path}: Meta PageView event`);
+  assert.equal([...html.matchAll(/facebook\.com\/tr\?id=618977481863172&amp;ev=PageView&amp;noscript=1/g)].length, 1, `${path}: Meta Pixel fallback`);
   const title = html.match(/<title>(.*?)<\/title>/)?.[1];
   const description = html.match(/<meta name="description" content="([^"]+)"/)?.[1];
   assert.ok(title && !titles.has(title), `${path}: unique title`);
@@ -38,6 +42,10 @@ for (const file of files) {
   const robots = html.match(/<meta name="robots" content="([^"]+)"/)?.[1];
   assert.equal(robots, site.indexable && path !== '/404.html' ? 'index,follow' : 'noindex,follow');
   for (const image of html.matchAll(/<img\b[^>]*>/g)) {
+    if (image[0].includes('data-meta-pixel-fallback')) {
+      assert.match(image[0], /\balt=""/, `${path}: Meta Pixel fallback remains decorative`);
+      continue;
+    }
     assert.match(image[0], /\balt="[^"]+"/, `${path}: every content image has descriptive alt text`);
   }
 }
